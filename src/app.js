@@ -4,6 +4,10 @@ const app = express();
 
 const PORT = 7777;
 
+app.use("/",(req,res)=>{
+  res.send("use is middleware and order matters a lot so it will execute first and bypass all the requests")
+})
+
 app.get("/user", (req, res) => {
   res.send("hello from homepage");
 });

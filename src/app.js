@@ -7,13 +7,14 @@ const PORT = 7777;
 app.use(
   "/user",
   (req, res, next) => {
-    next();
     // res.send("request handler 1");
     console.log("req handler 1 executed");
+    console.log(req.query)
+    next();
   },
   (req, res,next) => {
-    next()
     // res.send("request handler 2");
+    next()
     console.log("request handler 2 executed");
   },
   (req, res) => {

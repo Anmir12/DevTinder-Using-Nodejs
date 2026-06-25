@@ -8,12 +8,17 @@ app.use(
   "/user",
   (req, res, next) => {
     next();
-    res.send("request handler 1");
+    // res.send("request handler 1");
     console.log("req handler 1 executed");
   },
-  (req, res) => {
-    res.send("request handler 2");
+  (req, res,next) => {
+    next()
+    // res.send("request handler 2");
     console.log("request handler 2 executed");
+  },
+  (req, res) => {
+    res.send("request handler 3");
+    console.log("request handler 3 executed");
   },
 );
 

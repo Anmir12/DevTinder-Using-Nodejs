@@ -1,20 +1,11 @@
 const express = require("express");
+const { adminAuth } = require("./middlewears/auth");
 
 const app = express();
 
 const PORT = 7777;
 
-app.use("/admin", (req, res, next) => {
-  const token = "xyzgs";
-
-  const isAdminAuthorized = token === "xyz";
-
-  if (!isAdminAuthorized) {
-    res.status(401).send("admin authentication failed");
-  } else {
-    next();
-  }
-});
+app.use("/admin",adminAuth);
 
 app.get("/user",(req,res,next)=>{
  res.send("sending user data")

@@ -5,7 +5,7 @@ const app = express();
 const PORT = 7777;
 
 app.use("/admin", (req, res, next) => {
-  const token = "xyz";
+  const token = "xyzgs";
 
   const isAdminAuthorized = token === "xyz";
 
@@ -16,6 +16,9 @@ app.use("/admin", (req, res, next) => {
   }
 });
 
+app.get("/user",(req,res,next)=>{
+ res.send("sending user data")
+})
 app.get("/admin/getAllData", (req, res, next) => {
   res.send("sending all admin data");
 });

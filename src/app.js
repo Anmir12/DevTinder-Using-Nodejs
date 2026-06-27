@@ -1,5 +1,5 @@
 const express = require("express");
-const { adminAuth } = require("./middlewears/auth");
+const { adminAuth,userAuth } = require("./middlewears/auth");
 
 const app = express();
 
@@ -7,7 +7,7 @@ const PORT = 7777;
 
 app.use("/admin",adminAuth);
 
-app.get("/user",(req,res,next)=>{
+app.get("/user",userAuth,(req,res,next)=>{
  res.send("sending user data")
 })
 app.get("/admin/getAllData", (req, res, next) => {
